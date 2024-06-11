@@ -53,6 +53,7 @@ class PhoneNumber(models.Model):
     def __str__(self):
         return f"{self.phone_number}"
 
+
 class Email(models.Model):
     email = models.EmailField(unique=True)
     note = models.CharField(max_length=100, null=True, blank=True)
@@ -130,5 +131,4 @@ class Production(models.Model):
 class Committee(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
-    members = models.ManyToManyField(StaffMember
-                                     )
+    members = models.ManyToManyField(StaffMember)

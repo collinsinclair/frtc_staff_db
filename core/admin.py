@@ -10,6 +10,7 @@ models = [
     Email,
     StaffMember,
     Production,
+    Committee,
 ]
 for model in models:
     admin.site.register(model)
