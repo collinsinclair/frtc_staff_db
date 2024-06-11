@@ -27,7 +27,7 @@ class ExpenseStatus(models.Model):
     status = models.CharField(max_length=32)
 
 
-class ExpenseApproval(models.Model):
+class ExpenseReview(models.Model):
     expense = models.ForeignKey(ItemizedExpense, on_delete=models.PROTECT)
     status = models.ForeignKey(ExpenseStatus, on_delete=models.PROTECT)
     reviewed_by = models.ForeignKey(StaffMember, on_delete=models.PROTECT)
