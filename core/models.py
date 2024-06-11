@@ -109,6 +109,9 @@ class Person(models.Model):
 class StaffMember(Person):
     roles = models.ManyToManyField(Role, blank=True)
     responsibilities = models.ManyToManyField(Responsibility, blank=True)
+    reports_to = models.ForeignKey(
+        "StaffMember", null=True, blank=True, on_delete=models.SET_NULL
+    )
 
 
 class Production(models.Model):
