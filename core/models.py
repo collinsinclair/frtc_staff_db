@@ -9,6 +9,10 @@ class Location(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Location"
+        verbose_name_plural = "Locations"
+
 
 class ProductionType(models.Model):
     name = models.CharField(max_length=100)
@@ -16,6 +20,10 @@ class ProductionType(models.Model):
 
     def __str__(self):
         return self.name
+
+    class Meta:
+        verbose_name = "Production Type"
+        verbose_name_plural = "Production Types"
 
 
 class Responsibility(models.Model):
@@ -26,6 +34,7 @@ class Responsibility(models.Model):
         return self.name
 
     class Meta:
+        verbose_name = "Responsibility"
         verbose_name_plural = "Responsibilities"
 
 
@@ -40,6 +49,10 @@ class Role(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Role"
+        verbose_name_plural = "Roles"
+
 
 class PhoneNumber(models.Model):
     phone_number = models.IntegerField(unique=True)
@@ -53,6 +66,10 @@ class PhoneNumber(models.Model):
     def __str__(self):
         return f"{self.phone_number}"
 
+    class Meta:
+        verbose_name = "Phone Number"
+        verbose_name_plural = "Phone Numbers"
+
 
 class Email(models.Model):
     email = models.EmailField(unique=True)
@@ -60,6 +77,10 @@ class Email(models.Model):
 
     def __str__(self):
         return self.email
+
+    class Meta:
+        verbose_name = "Email"
+        verbose_name_plural = "Emails"
 
 
 class Person(models.Model):
@@ -104,6 +125,8 @@ class Person(models.Model):
 
     class Meta:
         abstract = True
+        verbose_name = "Person"
+        verbose_name_plural = "People"
 
 
 class StaffMember(Person):
@@ -112,6 +135,10 @@ class StaffMember(Person):
     reports_to = models.ForeignKey(
         "StaffMember", null=True, blank=True, on_delete=models.SET_NULL
     )
+
+    class Meta:
+        verbose_name = "Staff Member"
+        verbose_name_plural = "Staff Members"
 
 
 class Production(models.Model):
@@ -130,8 +157,16 @@ class Production(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        verbose_name = "Production"
+        verbose_name_plural = "Productions"
+
 
 class Committee(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField()
     members = models.ManyToManyField(StaffMember)
+
+    class Meta:
+        verbose_name = "Committee"
+        verbose_name_plural = "Committees"
