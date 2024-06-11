@@ -9,6 +9,9 @@ class ExpenseCategory(models.Model):
     name = models.CharField(max_length=100)
     description = models.TextField(null=True, blank=True)
 
+    class Meta:
+        verbose_name_plural = "Expense Categories"
+
 
 class ItemizedExpense(models.Model):
     vendor = models.CharField(max_length=100)
@@ -25,6 +28,9 @@ class ItemizedExpense(models.Model):
 
 class ExpenseStatus(models.Model):
     status = models.CharField(max_length=32)
+
+    class Meta:
+        verbose_name_plural = "Expense Statuses"
 
 
 class ExpenseReview(models.Model):
