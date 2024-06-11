@@ -10,6 +10,7 @@ class ExpenseCategory(models.Model):
     description = models.TextField(null=True, blank=True)
 
     class Meta:
+        verbose_name = "Expense Category"
         verbose_name_plural = "Expense Categories"
 
 
@@ -25,11 +26,16 @@ class ItemizedExpense(models.Model):
     receipt = models.ImageField()
     purchaser = models.ForeignKey(StaffMember, on_delete=models.PROTECT)
 
+    class Meta:
+        verbose_name = "Itemized Expense"
+        verbose_name_plural = "Itemized Expenses"
+
 
 class ExpenseStatus(models.Model):
     status = models.CharField(max_length=32)
 
     class Meta:
+        verbose_name = "Expense Status"
         verbose_name_plural = "Expense Statuses"
 
 
@@ -38,3 +44,7 @@ class ExpenseReview(models.Model):
     status = models.ForeignKey(ExpenseStatus, on_delete=models.PROTECT)
     reviewed_by = models.ForeignKey(StaffMember, on_delete=models.PROTECT)
     review_date = models.DateField(default=datetime.date.today)
+
+    class Meta:
+        verbose_name = "Expense Review"
+        verbose_name_plural = "Expense Reviews"
